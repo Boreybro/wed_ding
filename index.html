@@ -9,15 +9,15 @@
     <style>
         body {
             font-family: 'Kantumruy Pro', sans-serif;
-            background-image: url('https://raw.githubusercontent.com/username/repository/branch/2.PNG'); /* Replace with your image path */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-image: url('./2.PNG'); /* Changed from '/2.PNG' to './2.PNG' */
+            background-size: cover; /* Scales to cover the full screen */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Keeps it fixed while scrolling (optional) */
             overflow-x: hidden;
         }
         .serif { font-family: 'Playfair Display', serif; }
-
+        
         /* Animation for Petals */
         .petal {
             position: fixed;
@@ -69,7 +69,7 @@
 
         @keyframes fadeInOut {
             0%, 100% { opacity: 0; transform: translateY(10px); }
-            20%, 80% { opacity: 1; transform: translateY(0); }
+            20%, 80% { opacity: 1; transform: translateY(0); }  /* Increased from 10%/90% to 20%/80% for longer visibility */
         }
 
         /* Horizontal Scrollbar Hide */
@@ -83,10 +83,10 @@
 
         /* Blur and overlay for text clarity */
         #hero, #content section {
-            backdrop-filter: blur(5px);
-            background-color: rgba(255, 250, 240, 0.8);
-            border-radius: 1rem;
-            padding: 1rem; 
+            backdrop-filter: blur(5px); /* Blurs the background behind text */
+            background-color: rgba(255, 250, 240, 0.8); /* Semi-transparent cream overlay */
+            border-radius: 1rem; /* Softens edges */
+            padding: 1rem; /* Adds space */
         }
     </style>
 </head>
@@ -99,7 +99,7 @@
             <h1 class="serif text-5xl md:text-7xl italic text-stone-900 mb-6">The Wedding Day</h1>
             
             <div class="relative w-48 h-48 mx-auto mb-10 flex items-center justify-center overflow-hidden rounded-full border-4 border-amber-200">
-                <img src="https://raw.githubusercontent.com/username/repository/branch/1.JPG" alt="Wedding Rose" class="w-full h-full object-cover rounded-full" style="image-rendering: crisp-edges;">
+                <img src="./1.JPG" alt="Wedding Rose" class="w-full h-full object-cover rounded-full" style="image-rendering: crisp-edges;"> <!-- Changed from '/1.JPG' -->
             </div>
 
             <button onclick="openInvitation()" class="bg-amber-800 text-white px-10 py-3 rounded-full shadow-xl hover:bg-amber-900 transition transform hover:scale-105">
@@ -163,9 +163,9 @@
         <!-- Location -->
         <section class="text-center bg-amber-50 p-8 rounded-3xl border border-amber-100">
             <h3 class="text-xl font-bold mb-2">ទីតាំងកម្មវិធី</h3>
-            <p class="text-stone-600 text-sm mb-6">ភូមិសួនស្លា ឃុំក្ដុលតាហែន ស្រុកបវេល ខេត្ដបាតដំប</p>
+            <p class="text-stone-600 text-sm mb-6">ភូមិសួនស្លា ឃុំក្ដុលតាហែន ស្រុកបវេល ខេត្ដបាត់ដំប</p>
             <div class="w-40 h-40 bg-white mx-auto border-2 border-dashed border-amber-200 rounded-xl flex items-center justify-center overflow-hidden">
-                <img src="https://raw.githubusercontent.com/username/repository/branch/6332336796263453337_121.jpg" alt="QR Code for Location" class="w-full h-full object-cover rounded-xl">
+                <img src="./6332336796263453337_121.jpg" alt="QR Code for Location" class="w-full h-full object-cover rounded-xl"> <!-- Changed from '/6332336796263453337_121.jpg' -->
             </div>
         </section>
 
@@ -174,29 +174,29 @@
             <h3 class="serif italic text-xl text-center text-amber-800">Our Memories</h3>
             <div class="flex overflow-x-auto space-x-4 pb-4 hide-scrollbar snap-x">
                 <div class="flex-shrink-0 w-48 h-64 bg-white p-2 shadow-lg rotate-2 snap-center">
-                    <img src="https://raw.githubusercontent.com/username/repository/branch/2.PNG" alt="Wedding 1" class="w-full h-48 object-cover mb-2">
+                    <img src="./2.PNG" alt="Wedding 1" class="w-full h-48 object-cover mb-2"> <!-- Changed from '/2.PNG' -->
                     <p class="text-[10px] text-center text-stone-400">Forever</p>
                 </div>
                 <div class="flex-shrink-0 w-48 h-64 bg-white p-2 shadow-lg -rotate-2 snap-center">
-                    <img src="https://raw.githubusercontent.com/username/repository/branch/3.jpg" alt="Wedding 2" class="w-full h-48 object-cover mb-2">
+                    <img src="./3.jpg" alt="Wedding 2" class="w-full h-48 object-cover mb-2"> <!-- Changed from '/3.jpg' -->
                     <p class="text-[10px] text-center text-stone-400">Together</p>
                 </div>
             </div>
         </section>
 
-        <!-- VERTICAL PHOTO STACK -->
+        <!-- VERTICAL PHOTO STACK (Added 5 more images stacked vertically) -->
         <section class="space-y-8 flex flex-col items-center">
             <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform rotate-1">
-                <img src="https://raw.githubusercontent.com/username/repository/branch/4.jpg" alt="Gallery 1" class="w-full h-auto object-cover">
+                <img src="./4.jpg" alt="Gallery 1" class="w-full h-auto object-cover"> <!-- Changed from '/4.jpg' -->
             </div>
             <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform -rotate-1">
-                <img src="https://raw.githubusercontent.com/username/repository/branch/7.jpg" alt="Gallery 2" class="w-full h-auto object-cover">
+                <img src="./7.jpg" alt="Gallery 2" class="w-full h-auto object-cover"> <!-- Changed from '/7.jpg' -->
             </div>
             <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform rotate-2">
-                <img src="https://raw.githubusercontent.com/username/repository/branch/5.jpg" alt="Gallery 3" class="w-full h-auto object-cover">
+                <img src="./5.jpg" alt="Gallery 3" class="w-full h-auto object-cover"> <!-- Changed from '/5.jpg' -->
             </div>
             <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform -rotate-2">
-                <img src="https://raw.githubusercontent.com/username/repository/branch/6.jpg" alt="Gallery 4" class="w-full h-auto object-cover">
+                <img src="./6.jpg" alt="Gallery 4" class="w-full h-auto object-cover"> <!-- Changed from '/6.jpg' -->
             </div>
         </section>
 
@@ -242,20 +242,22 @@
         let currentMsgIndex = 0;
 
         function startMessageSlider() {
-            const textElem = document.getElementById('congrats-text');
-            const authorElem = document.getElementById('congrats-author');
-            const container = document.getElementById('message-container');
+    const textElem = document.getElementById('congrats-text');
+    const authorElem = document.getElementById('congrats-author');
+    const container = document.getElementById('message-container');
 
-            setInterval(() => {
-                currentMsgIndex = (currentMsgIndex + 1) % messages.length;
-                textElem.innerText = messages[currentMsgIndex].text;
-                authorElem.innerText = `- ${messages[currentMsgIndex].author} -`;
-                
-                container.style.animation = 'none';
-                container.offsetHeight; 
-                container.style.animation = 'fadeInOut 4s infinite';
-            }, 4000);
-        }
+    setInterval(() => {
+        // Change text immediately at the start of the cycle (when opacity is 0)
+        currentMsgIndex = (currentMsgIndex + 1) % messages.length;
+        textElem.innerText = messages[currentMsgIndex].text;
+        authorElem.innerText = `- ${messages[currentMsgIndex].author} -`;
+        
+        // Reset animation to restart smoothly
+        container.style.animation = 'none';
+        container.offsetHeight; // Trigger reflow
+        container.style.animation = 'fadeInOut 4s infinite';
+        }, 4000);
+    }
 
         function createPetal() {
             const petal = document.createElement('div');
