@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wedding Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;700&family=Playfair+Display:italic,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-image: url('/2.PNG'); /* Replace with your image path */
+            background-size: cover; /* Scales to cover the full screen */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Keeps it fixed while scrolling (optional) */
+            overflow-x: hidden;
+        }
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        /* Animation for Petals */
+        .petal {
+            position: fixed;
+            top: -10%;
+            user-select: none;
+            pointer-events: none;
+            z-index: 50;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Butterfly Animation */
+        .butterfly {
+            position: fixed;
+            font-size: 24px;
+            z-index: 40;
+            pointer-events: none;
+            animation: fly 15s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fly {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { transform: translate(100px, -200px) rotate(45deg); }
+            100% { transform: translate(-50px, -500px) rotate(-45deg); opacity: 0; }
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        /* Message Slider Animation */
+        .fade-in-out {
+            animation: fadeInOut 4s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(10px); }
+            20%, 80% { opacity: 1; transform: translateY(0); }  /* Increased from 10%/90% to 20%/80% for longer visibility */
+        }
+
+        /* Horizontal Scrollbar Hide */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Blur and overlay for text clarity */
+        #hero, #content section {
+            backdrop-filter: blur(5px); /* Blurs the background behind text */
+            background-color: rgba(255, 250, 240, 0.8); /* Semi-transparent cream overlay */
+            border-radius: 1rem; /* Softens edges */
+            padding: 1rem; /* Adds space */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex flex-col items-center justify-center text-center px-4">
+        <div class="z-10">
+            <h2 class="text-amber-700 text-lg tracking-[0.2em] mb-4">សិរីសួស្តីអាពាហ៍ពិពាហ៍</h2>
+            <h1 class="serif text-5xl md:text-7xl italic text-stone-900 mb-6">The Wedding Day</h1>
+            
+            <div class="relative w-48 h-48 mx-auto mb-10 flex items-center justify-center overflow-hidden rounded-full border-4 border-amber-200">
+                <img src="/1.JPG" alt="Wedding Rose" class="w-full h-full object-cover rounded-full" style="image-rendering: crisp-edges;">
+            </div>
+
+            <button onclick="openInvitation()" class="bg-amber-800 text-white px-10 py-3 rounded-full shadow-xl hover:bg-amber-900 transition transform hover:scale-105">
+                បើកសំបុត្រអញ្ជើញ
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="content" class="hidden max-w-md mx-auto px-6 pb-20 space-y-16 relative">
+        
+        <!-- Invitation Text -->
+        <section class="text-center pt-10 space-y-6">
+            <p class="text-amber-800 font-bold">យើងខ្ញុំសូមគោរពអញ្ជើញ</p>
+            <h3 class="text-2xl font-bold text-stone-900">ឯកឧត្តម លោកជំទាវ លោក - លោកស្រី</h3>
+            <p class="text-stone-600 leading-relaxed">
+                ដើម្បីចូលរួមជាអធិបតី និងជាសាក្សីក្នុងពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍របស់កូនយើងខ្ញុំ
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 py-8 border-y border-amber-100">
+                <div>
+                    <p class="text-xs text-amber-600 uppercase mb-1">កូនប្រុស</p>
+                    <p class="text-lg font-bold">ណាង នាង</p>
+                </div>
+                <div>
+                    <p class="text-xs text-amber-600 uppercase mb-1">កូនស្រី</p>
+                    <p class="text-lg font-bold">ផាត សុផានិច្ច</p>
+                </div>
+            </div>
+
+            <div class="space-y-1">
+                <p class="text-xl font-bold text-stone-800">ថ្ងៃសុក្រ ទី៨ ខែមីនា ឆ្នាំ២០២៦</p>
+                <p class="text-stone-500 italic text-sm">ត្រូវនឹងថ្ងៃ ៥រោច ខែផល្គុន ឆ្នាំម្សាញ់ ប្តស័ក ពុទ្ធសករាជ ២៥៦៩</p>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="relative timeline-line space-y-10 pl-12">
+            <div class="relative">
+                <div class="absolute -left-[42px] bg-amber-100 p-2 rounded-full border-2 border-amber-600">🎵</div>
+                <p class="text-amber-700 text-sm font-bold">07:00 ព្រឹក</p>
+                <h4 class="text-lg font-medium">ពិធីហែជំនូន</h4>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-[42px] bg-amber-100 p-2 rounded-full border-2 border-amber-600">✂️</div>
+                <p class="text-amber-700 text-sm font-bold">10:00 ព្រឹក</p>
+                <h4 class="text-lg font-medium">ពិធីកាត់សក់</h4>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-[42px] bg-amber-100 p-2 rounded-full border-2 border-amber-600">💍</div>
+                <p class="text-amber-700 text-sm font-bold">11:00 ព្រឹក</p>
+                <h4 class="text-lg font-medium">ពិធីសែនចងដៃ</h4>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-[42px] bg-amber-100 p-2 rounded-full border-2 border-amber-600">🍽️</div>
+                <p class="text-amber-700 text-sm font-bold">04:00 ល្ងាច</p>
+                <h4 class="text-lg font-medium">ពិធីជប់លៀង</h4>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section class="text-center bg-amber-50 p-8 rounded-3xl border border-amber-100">
+            <h3 class="text-xl font-bold mb-2">ទីតាំងកម្មវិធី</h3>
+            <p class="text-stone-600 text-sm mb-6">ភូមិសួនស្លា ឃុំក្ដុលតាហែន ស្រុកបវេល ខេត្ដបាត់ដំប</p>
+            <div class="w-40 h-40 bg-white mx-auto border-2 border-dashed border-amber-200 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="/6332336796263453337_121.jpg" alt="QR Code for Location" class="w-full h-full object-cover rounded-xl">
+            </div>
+        </section>
+
+        <!-- PHOTO ROW SECTION -->
+        <section class="space-y-4">
+            <h3 class="serif italic text-xl text-center text-amber-800">Our Memories</h3>
+            <div class="flex overflow-x-auto space-x-4 pb-4 hide-scrollbar snap-x">
+                <div class="flex-shrink-0 w-48 h-64 bg-white p-2 shadow-lg rotate-2 snap-center">
+                    <img src="/2.PNG" alt="Wedding 1" class="w-full h-48 object-cover mb-2">
+                    <p class="text-[10px] text-center text-stone-400">Forever</p>
+                </div>
+                <div class="flex-shrink-0 w-48 h-64 bg-white p-2 shadow-lg -rotate-2 snap-center">
+                    <img src="/3.jpg" alt="Wedding 2" class="w-full h-48 object-cover mb-2">
+                    <p class="text-[10px] text-center text-stone-400">Together</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VERTICAL PHOTO STACK (Added 5 more images stacked vertically) -->
+        <section class="space-y-8 flex flex-col items-center">
+            <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform rotate-1">
+                <img src="/4.jpg" alt="Gallery 1" class="w-full h-auto object-cover">
+            </div>
+            <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform -rotate-1">
+                <img src="/7.jpg" alt="Gallery 2" class="w-full h-auto object-cover">
+            </div>
+            <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform rotate-2">
+                <img src="/5.jpg" alt="Gallery 3" class="w-full h-auto object-cover">
+            </div>
+            <div class="w-full max-w-xs bg-white p-3 shadow-xl border border-stone-100 transform -rotate-2">
+                <img src="/6.jpg" alt="Gallery 4" class="w-full h-auto object-cover">
+            </div>
+        </section>
+
+        <!-- Congratulations Section -->
+        <section class="text-center py-10 bg-white rounded-3xl shadow-inner border border-stone-100">
+            <h3 class="serif italic text-2xl text-amber-800 mb-6">Congratulations</h3>
+            <div class="h-32 flex items-center justify-center px-4">
+                <div id="message-container" class="fade-in-out">
+                    <p id="congrats-text" class="text-lg text-stone-700 font-medium leading-relaxed">
+                        សូមឱ្យអ្នកទាំងពីរមានសុភមង្គលជារៀងរហូត!
+                    </p>
+                    <p id="congrats-author" class="text-sm text-amber-600 mt-2 italic">- គ្រួសារ និងមិត្តភក្តិ -</p>
+                </div>
+            </div>
+            <div class="flex justify-center space-x-2 mt-4">
+                <div class="w-2 h-2 rounded-full bg-amber-200"></div>
+                <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+                <div class="w-2 h-2 rounded-full bg-amber-200"></div>
+            </div>
+        </section>
+
+        <footer class="text-center pt-10 border-t border-stone-200">
+            <p class="serif italic text-amber-800">ពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍</p>
+        </footer>
+    </main>
+
+    <script>
+        function openInvitation() {
+            const content = document.getElementById('content');
+            content.classList.remove('hidden');
+            content.scrollIntoView({ behavior: 'smooth' });
+            startMessageSlider();
+        }
+
+        const messages = [
+            { text: "សូមឱ្យអ្នកទាំងពីរមានសុភមង្គលជារៀងរហូត!", author: "គ្រួសារ និងមិត្តភក្តិ" },
+            { text: "Wishing you a lifetime of love and happiness!", author: "Best Friends" },
+            { text: "សូមឱ្យស្រឡាញ់គ្នាដល់ចាស់កោងខ្នង!", author: "ចាស់ទុំ" },
+            { text: "May your journey together be filled with joy!", author: "Colleagues" },
+            { text: "រីករាយថ្ងៃអាពាហ៍ពិពាហ៍ ប្អូនប្រុស ប្អូនស្រី!", author: "បងប្អូន" }
+        ];
+
+        let currentMsgIndex = 0;
+
+        function startMessageSlider() {
+    const textElem = document.getElementById('congrats-text');
+    const authorElem = document.getElementById('congrats-author');
+    const container = document.getElementById('message-container');
+
+    setInterval(() => {
+        // Change text immediately at the start of the cycle (when opacity is 0)
+        currentMsgIndex = (currentMsgIndex + 1) % messages.length;
+        textElem.innerText = messages[currentMsgIndex].text;
+        authorElem.innerText = `- ${messages[currentMsgIndex].author} -`;
+        
+        // Reset animation to restart smoothly
+        container.style.animation = 'none';
+        container.offsetHeight; // Trigger reflow
+        container.style.animation = 'fadeInOut 4s infinite';
+        }, 4000);
+    }
+
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.innerHTML = '🌸';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            petal.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 10000);
+        }
+
+        function createButterfly() {
+            const b = document.createElement('div');
+            b.className = 'butterfly';
+            b.innerHTML = '🦋';
+            b.style.left = Math.random() * 100 + 'vw';
+            b.style.bottom = '10%';
+            document.body.appendChild(b);
+            setTimeout(() => b.remove(), 15000);
+        }
+
+        setInterval(createPetal, 600);
+        setInterval(createButterfly, 4000);
+    </script>
+</body>
+</html>
